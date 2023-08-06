@@ -24,19 +24,8 @@ const App = () => {
     }
   };
 
-  // Delete All Data
-  const clearAllData = async () => {
-    try {
-      await axios.delete(`http://localhost:8000/people`);
-      // setPeople([]);
-    } catch (error: any) {
-      console.log(error.message);
-    }
-  };
-
   useEffect(() => {
     getData();
-    // console.log(people);
   }, []);
 
   return (
@@ -50,7 +39,7 @@ const App = () => {
               <img src={img} alt="Person" />
             </div>
             <div>
-              <h2>{name}</h2>
+              <h3>{name}</h3>
               <p>{age} years</p>
             </div>
             <button
@@ -64,15 +53,6 @@ const App = () => {
           </section>
         );
       })}
-      <button
-        className="clear-all"
-        onClick={async () => {
-          await clearAllData();
-          getData();
-        }}
-      >
-        Clear All
-      </button>
     </main>
   );
 };
